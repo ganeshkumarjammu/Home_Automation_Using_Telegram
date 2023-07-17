@@ -66,7 +66,7 @@ void handleNewMessages(int numNewMessages) {
     String from_name = bot.messages[i].from_name;
 
     if (text == "/start") {
-      String welcome = "Welcome, " + from_name + ".\n";
+      String welcome = "Welcome to Smart Home, " + from_name + ".\n";
       welcome += "Use the following commands to control your outputs.\n\n";
       welcome += "/light1_on to turn Light1 ON \n";
       welcome += "/light1_off to turn Light1 OFF \n";
@@ -173,11 +173,11 @@ void setup() {
   WiFi.begin(ssid, password);
   clientTCP.setCACert(TELEGRAM_CERTIFICATE_ROOT); // Add root certificate for api.telegram.org
   while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
+    Serial.println("connecting to WiFi");
     delay(50);
   }
   Serial.println();
-  Serial.print("ESP32-CAM IP Address: ");
+  Serial.print("ESP32 IP Address: ");
   Serial.println(WiFi.localIP());
 }
 
